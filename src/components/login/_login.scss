@@ -1,0 +1,65 @@
+.login{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 4rem 0 1rem 0;
+
+    &__logo{
+        height: 128px;
+        width: 88px;
+    }
+    &__logo img{
+        width: 100%;
+        height: 100%;
+    }
+    &__headline{
+        font-family: "Playfair Display";
+        font-size: 38px;
+        margin-top: .3rem;
+    }
+    &__subtext{
+            font-family: "Open Sans";
+            font-size: 16px;
+            margin: 2.5rem 0 3rem 0;
+    }
+    &__buttons{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__btn{
+        width: 90%;
+        background:none;
+        border-radius: 2rem;
+        border: 1px solid #C5C5C5;
+        padding: 1rem 0;
+        font-size: 16px;
+        font-family: "Open Sans Semibold";
+        color: #404040;
+    }
+    &__btn--login{
+        width: 90%;
+        background: none;
+        border-radius: 2rem;
+        border: 1px solid #4D861F;
+        background-color: #4D861F;
+        box-shadow: 2px 4px 6px #4d861f50;
+        color: whitesmoke;
+        font-size: 16px;
+        padding: 1rem 0;
+        font-family: "Open Sans Semibold";
+    }
+
+}
