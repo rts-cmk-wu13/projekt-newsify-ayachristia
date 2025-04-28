@@ -1,90 +1,12 @@
-export default async function newsCards() {
+export default async function newsCards(articles) {
     const main = document.querySelector('main')
     let newsCardsEl = document.createElement("div");
     newsCardsEl.className = "newsCards";
 
-    let newYorkCategories;
 
-    let categories = [
-        'Europe',
-        'Health',
-        'Sports',
-        'Business',
-        'Travel'
-    ]
-    //read from localstorage
-    newYorkCategories = JSON.parse(localStorage.getItem("newYorkArray"));
-
-    async function fetchArticles(customQuery) {
-        try {
-            const apiKey = `rx7RIG7KHCa4ZSId1HyatuJOoTT9t9kr`
-            const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${customQuery}&api-key=${apiKey}`
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json'
-                }
-            })
-            const data = await response.json()
-            const articles = data.response.docs
-
-
-            let dataObject = articles.map((article) => {
-                // console.log(article);
-                return {
-                    category: article.news_desk,
-                    headline: article.headline,
-                    article: article.abstract,
-                    author: article.byline,
-                    resume: article.snippet,
-                    published: article.pub_date,
-                    subsection: article.subsection_name,
-                    id: article._id,
-                    url: article.web_url,
-                    defaultimage: article.multimedia.default.url,
-                    thumbnail: article.multimedia.thumbnail.url
-                }
-            })
-            return dataObject
-        } catch (error) {
-            console.error('Error fetching data:', error)
-        }
-    }
-
-
-    async function loadCategories() {
-        const newCategories = await Promise.all(
-            categories.map(async (category) => {
-                const articles = await fetchArticles(category)
-                return {
-                    category: category,
-                    articles: articles
-                }
-            })
-        )
-        return newCategories;
-    }
-
-    const storedData = localStorage.getItem("newYorkArray")
-    const storedTime = localStorage.getItem("newYorkArrayTime")
-    const oneHour = 60 * 60 * 1000; //1hr in ms
-
-
-    if (storedData && storedTime && (Date.now() - Number(storedTime)) < oneHour) {
-        newYorkCategories = JSON.parse(storedData)
-    } else {
-        newYorkCategories = await loadCategories();
-        localStorage.setItem("newYorkArray", JSON.stringify(newYorkCategories))
-        localStorage.setItem("newYorkArrayTime", Date.now().toString())
-    }
-    // else {
-    //     console.log(newYorkCategories);
-    // }
-    console.log(newYorkCategories);
-
-    newsCardsEl.innerHTML = newYorkCategories.map((category) => {
+    newsCardsEl.innerHTML = articles.map((category) => {
         const articles = category.articles
-        console.log(articles);
+        // console.log(articles);
         // console.log(articles);
         return `
                 <section class="newsCards__item">
