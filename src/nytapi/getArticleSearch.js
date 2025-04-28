@@ -1,4 +1,4 @@
-const BASE_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?`
+const BASE_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json`
 const API_KEY = import.meta.env.VITE_NYT_API_KEY
 
 export default async function getArticleSearch() {
@@ -14,7 +14,6 @@ export default async function getArticleSearch() {
     ]
 
     async function fetchArticles(customQuery) {
-        const BASE_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json`
         const url = new URL(BASE_URL);
         url.searchParams.append('q', customQuery);
         url.searchParams.append('api-key', API_KEY);
@@ -37,8 +36,8 @@ export default async function getArticleSearch() {
                 return {
                     category: article.news_desk,
                     headline: article.headline,
-                    article: article.abstract,
                     author: article.byline,
+                    article: article.abstract,
                     resume: article.snippet,
                     published: article.pub_date,
                     subsection: article.subsection_name,

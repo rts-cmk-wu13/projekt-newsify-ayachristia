@@ -11,6 +11,7 @@ export default async function getMostPopular(query, filter) {
         const response = await fetch(url);
         const data = await response.json();
         const articles = await data.results
+        console.log(articles);
 
         let dataObject;
         dataObject = JSON.parse(localStorage.getItem("mostPopular"))
@@ -20,15 +21,15 @@ export default async function getMostPopular(query, filter) {
                 return {
                     category: article.subsection,
                     headline: article.title,
-                    article: article.uri,
                     author: article.byline,
+                    article: article.uri,
                     resume: article.abstract,
                     published: article.published_date,
                     subsection: article.section,
                     id: article.id,
                     url: article.url,
-                    defaultimage: article.media[0]
-                    // thumbnail: article.media.mediametadata[0].url
+                    defaultimage: article.media[0]['media-metadata'][1].url,
+                    thumbnail: article.media[0]['media-metadata'][0].url
 
                 }
             })

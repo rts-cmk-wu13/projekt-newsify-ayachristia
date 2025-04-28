@@ -34,6 +34,7 @@ export default async function newsCards(articles) {
 
                             <section class="newsCards__articles">
                                 ${articlesArray.map((article) => {
+            console.log(article);
             return `
                                         <article class="newsCards__article">
                                             <div class="newsCards__article--logo">
@@ -41,7 +42,7 @@ export default async function newsCards(articles) {
                                             </div>
 
                                             <section class="newsCards__article--text">
-                                                <h3 class="newsCards__article--headline">${article.headline.main}</h3>
+                                                <h3 class="newsCards__article--headline">${article.headline.main ?? article.headline}</h3>
                                                 <p class="newsCards__article--resume">${article.resume}</p>
                                             </section>
 

@@ -16,11 +16,12 @@ export default async function getArchive(query, filter) {
     async function fetchArticles(customQuery) {
         const url = new URL(BASE_URL + `${query}/${filter}.json`, window.location.origin);
         url.searchParams.append('api-key', API_KEY);
-
+        console.log(url);
         try {
             const response = await fetch(url);
             const data = await response.json();
             const articles = await data.response.docs
+            console.log(articles);
 
             const dataObject = articles.map((article) => {
                 // const query = customQuery ? customQuery.toLowerCase() : ""
@@ -36,8 +37,8 @@ export default async function getArchive(query, filter) {
                         subsection: article.subsection,
                         id: article._id,
                         url: article.web_url,
-                        thumbnail: article.multimedia[3].url,
-                        jumbo: article.multimedia[1].url
+                        defaultimage: 'http://static01.nyt.com/' + article.multimedia[1].url,
+                        thumbnail: 'http://static01.nyt.com/' + article.multimedia[3].url
                     };
                 }
                 return null;

@@ -6,4 +6,5 @@ layout().appendChild(footer())
 
 //FETCH for popular
 const popularArticles = await getMostPopular('viewed', 7)
+// const popularArticles = await getMostPopular()
 console.log(popularArticles);
