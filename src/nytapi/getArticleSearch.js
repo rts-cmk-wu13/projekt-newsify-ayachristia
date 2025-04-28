@@ -80,7 +80,6 @@ export default async function getArticleSearch() {
         localStorage.setItem("articleSearchArrayTime", Date.now().toString())
     }
 
-    console.log(nytCategories);
 
     return nytCategories
 

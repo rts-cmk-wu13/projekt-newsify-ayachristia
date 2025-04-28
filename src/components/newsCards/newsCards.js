@@ -3,11 +3,20 @@ export default async function newsCards(articles) {
     let newsCardsEl = document.createElement("div");
     newsCardsEl.className = "newsCards";
 
+    let categories = [
+        'Europe',
+        'Health',
+        'Sports',
+        'Business',
+        'Travel'
+    ]
 
-    newsCardsEl.innerHTML = articles.map((category) => {
-        const articles = category.articles
-        // console.log(articles);
-        // console.log(articles);
+
+
+    newsCardsEl.innerHTML = categories.map((category) => {
+        const articlesObject = articles.find(item => item.category === category);
+        const articlesArray = articlesObject?.articles ?? [];
+
         return `
                 <section class="newsCards__item">
                     <section class="newsCards__category">
@@ -17,16 +26,14 @@ export default async function newsCards(articles) {
                                 <div class="newsCards__summary--logo">
                                     <img src="/src/imgs/newsify_logo 1.png" alt="logo" aria-label="logo">
                                 </div>
-                                <h2 class="newsCards__summary--headline">${category.category}</h2>
+                                <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
                                 keyboard_arrow_down
                                 </span>
                             </summary>
 
                             <section class="newsCards__articles">
-                                <!-- ${category} -->
-                                 ${articles.map((article) => {
-            // console.log(article);
+                                ${articlesArray.map((article) => {
             return `
                                         <article class="newsCards__article">
                                             <div class="newsCards__article--logo">
@@ -41,8 +48,8 @@ export default async function newsCards(articles) {
 
                                         </article>
                                         `
-        }).join("")}
-                                
+        }).join("")
+            }
                             </section>
                         </details>
 

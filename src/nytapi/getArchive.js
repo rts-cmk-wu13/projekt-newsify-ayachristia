@@ -21,7 +21,6 @@ export default async function getArchive(query, filter) {
             const response = await fetch(url);
             const data = await response.json();
             const articles = await data.response.docs
-            console.log(articles);
 
             const dataObject = articles.map((article) => {
                 // const query = customQuery ? customQuery.toLowerCase() : ""
@@ -43,7 +42,6 @@ export default async function getArchive(query, filter) {
                 }
                 return null;
             }).filter(item => item !== null)
-            console.log(dataObject);
 
             return dataObject;
         } catch (error) {
@@ -78,7 +76,6 @@ export default async function getArchive(query, filter) {
         localStorage.setItem("archiveArrayTime", Date.now().toString())
     }
 
-    console.log(nytCategories);
 
 
 
