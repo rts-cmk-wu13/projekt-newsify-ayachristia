@@ -72,6 +72,15 @@
   .active, .carousel__dot:hover {
     background-color: #4D861F;
   }
+
+  .active{
+    cursor: pointer;
+      height: 12px;
+      width: 50px;
+      margin: 0 2px;
+      border-radius: 20rem;
+      display: inline-block;
+  }
   
   .carousel::-webkit-scrollbar {
     display: none; /* Gem scrollbar for chrome */

@@ -30,7 +30,7 @@ export default function carousel() {
         </ul>
 
         <div class="carousel__dots">
-        <span class="carousel__dot"></span>
+        <span class="carousel__dot active"></span>
         <span class="carousel__dot"></span>
         <span class="carousel__dot"></span>
         </div>
@@ -38,12 +38,22 @@ export default function carousel() {
         <button class="carousel__continue">Continue</button>
         <button class="carousel__skip">Skip</button>
         `
-    let slideIndex = 1;
     const carousel = sliderEl.querySelector('.carousel');
+    const dots = sliderEl.querySelectorAll('.carousel__dot');
     const totalItems = carousel.querySelectorAll('li').length; // Changed here 👇
     console.log(totalItems);
     let currentItem = 0;
 
+
+    function updateActiveDot(index) {
+        dots.forEach((dot) => {
+            dot.classList.remove('active')
+        })
+
+        dots[index].classList.add('active')
+    }
+
+    updateActiveDot(currentItem)
 
     sliderEl.querySelector('.carousel__skip').addEventListener('click', function () {
         // Always redirect to index.html immediately when pressed
@@ -62,6 +72,8 @@ export default function carousel() {
             // Otherwise, scroll and increment
             carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
             currentItem++;
+
+            updateActiveDot(currentItem)
         }
     })
 

@@ -28,7 +28,6 @@ export default async function getArticleSearch() {
             const response = await fetch(url)
             const data = await response.json()
             const articles = data.response.docs
-            console.log(articles);
 
 
             let dataObject = articles.map((article) => {

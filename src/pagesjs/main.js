@@ -6,6 +6,7 @@ import newsCards from '../components/newsCards/newsCards.js'
 import getArticleSearch from '../nytapi/getArticleSearch.js'
 
 const searchArticles = await getArticleSearch()
+console.log(searchArticles);
 layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
 
 

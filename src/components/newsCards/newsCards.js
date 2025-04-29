@@ -24,7 +24,7 @@ export default async function newsCards(articles) {
                         <details class="newsCards__details">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="/src/imgs/newsify_logo 1.png" alt="logo" aria-label="logo">
+                                    <img src="/src/imgs/newsify_logo1.png" alt="logo" aria-label="logo">
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
@@ -34,7 +34,6 @@ export default async function newsCards(articles) {
 
                             <section class="newsCards__articles">
                                 ${articlesArray.map((article) => {
-            console.log(article);
             return `
                                         <article class="newsCards__article">
                                             <div class="newsCards__article--logo">

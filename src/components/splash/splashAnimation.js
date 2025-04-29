@@ -1,0 +1,40 @@
+export default function splashEl() {
+    const body = document.querySelector('body')
+    const animateEl = document.createElement('section')
+    animateEl.classList.add('animateEl')
+
+    animateEl.innerHTML = `
+        <section class="animateEl__header">
+           <section class="animateEl__item mini">
+            <img src="/src/imgs/newsify_logo1.png" alt="logo">
+        </section>
+        <section class="animateEl__item big">
+            <img src="/src/imgs/newsify_logo2.png" alt="logo">
+            <h1 class="animateEl__headline">Newsify</h1>
+        </section> 
+        </section>
+    `
+    const miniEl = animateEl.querySelector('.mini')
+    const bigEl = animateEl.querySelector('.big')
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log(event);
+        miniEl.classList.add('activeSplash');
+        setTimeout(() => {
+            setTimeout(() => {
+                miniEl.classList.add('fade')
+            }, 300);
+
+            setTimeout(() => {
+                bigEl.classList.add('activeSplash')
+            }, 300)
+
+            setTimeout(() => {
+                window.location.href = `index.html`
+            }, 2000)
+        },)
+    })
+
+
+    body.appendChild(animateEl)
+    return body;
+}
