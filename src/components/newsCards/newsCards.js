@@ -18,13 +18,17 @@ export default async function newsCards(articles) {
         const articlesArray = articlesObject?.articles ?? [];
 
         return `
-                <section class="newsCards__item">
-                    <section class="newsCards__category">
 
-                        <details class="newsCards__details">
+                <!-- <section class="newsCards__item"> -->
+                    <!-- <section class="newsCards__category"> -->
+
+
+                        <!-- details parent tag-->
+                        <details class="newsCards__item">
+                            <!-- summery 1st child tag  -->
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="/src/imgs/newsify_logo1.png" alt="logo" aria-label="logo">
+                                    <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo">
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
@@ -32,12 +36,14 @@ export default async function newsCards(articles) {
                                 </span>
                             </summary>
 
-                            <section class="newsCards__articles">
+
+                            <!-- section 2nd child tag width articles  -->
+                            <section class="newsCards__articleList">
                                 ${articlesArray.map((article) => {
             return `
                                         <article class="newsCards__article">
                                             <div class="newsCards__article--logo">
-                                            <img src="${article.thumbnail}" alt="">
+                                            <img src="${article.thumbnail}" alt="articleImage">
                                             </div>
 
                                             <section class="newsCards__article--text">
@@ -52,13 +58,60 @@ export default async function newsCards(articles) {
             }
                             </section>
                         </details>
-
-                    </section>
-
-                </section>
+                    <!-- </section> -->
+                <!-- </section> -->
                 `
     }).join("")
 
+    swipeFunctionality(newsCardsEl)
+
+
     main.appendChild(newsCardsEl)
     return main
+}
+
+
+function swipeFunctionality(newsCardsEl) {
+    const swipeLists = newsCardsEl.querySelectorAll('.newsCards__articleList')
+    swipeLists.forEach((list) => {
+
+        let initialX;
+        let currentX;
+        let movedX;
+
+        list.addEventListener("pointerdown", startTouch)
+        list.addEventListener("pointermove", moveTouch)
+        list.addEventListener("pointerup", endTouch)
+
+
+        function startTouch(event) {
+            // event.preventDefault();
+            // event.stopPropagation()
+            initialX = event.clientX
+            console.log(initialX);
+
+            // e.target.closest('.swipelist__item').classList.remove('animate')
+        }
+
+        function moveTouch(event) {
+            // event.preventDefault();
+            // event.stopPropagation()
+            currentX = event.clientX
+            movedX = currentX - initialX
+            console.log(movedX);
+
+            // console.log(event.target.closest('.newsCards__article'));
+
+            // if (movedX < 0) {
+            event.target.closest('.newsCards__article').style.left = `${movedX}px`;
+            // }
+        }
+        function endTouch(event) {
+            initialX = undefined;
+        }
+
+
+
+    })
+
 }

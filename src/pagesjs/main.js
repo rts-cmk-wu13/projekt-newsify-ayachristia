@@ -5,11 +5,20 @@ import searchBar from '../components/searchbar/search.js'
 import newsCards from '../components/newsCards/newsCards.js'
 import getArticleSearch from '../nytapi/getArticleSearch.js'
 
-const searchArticles = await getArticleSearch()
-console.log(searchArticles);
-layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
 
 
+const splashShown = localStorage.getItem('splashShown')
+if (!splashShown) {
+    window.location.href = '/pages/splash.html';
+} else {
+    loadMain()
+}
+
+async function loadMain() {
+    const searchArticles = await getArticleSearch()
+    console.log(searchArticles);
+    layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
+}
 
 
 

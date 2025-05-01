@@ -25,7 +25,12 @@
         width: 10%;
         text-align: center;
     }
+    &__articleList{
+    // overflow: clip;
+    }
     &__article{
+        position: relative;
+
         display: flex;
         align-items: center;
         padding: .5rem 1rem;
@@ -71,3 +76,4 @@
         font-size: 14px;
     }
 }
+

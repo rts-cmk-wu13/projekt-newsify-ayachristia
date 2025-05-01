@@ -18,17 +18,19 @@ export default function splashEl() {
     const bigEl = animateEl.querySelector('.big')
     window.addEventListener('DOMContentLoaded', (event) => {
         console.log(event);
-        miniEl.classList.add('activeSplash');
+        miniEl.classList.add('fadein');
         setTimeout(() => {
             setTimeout(() => {
-                miniEl.classList.add('fade')
+                miniEl.classList.add('fadeout')
             }, 300);
 
             setTimeout(() => {
-                bigEl.classList.add('activeSplash')
+                bigEl.classList.add('fadein')
             }, 300)
 
             setTimeout(() => {
+                //indication that splash has been shown saved to localStorage
+                localStorage.setItem('splashShown', 'true')
                 window.location.href = `index.html`
             }, 2000)
         },)
