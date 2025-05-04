@@ -31,7 +31,7 @@ export default function splashEl() {
             setTimeout(() => {
                 //indication that splash has been shown saved to localStorage
                 localStorage.setItem('splashShown', 'true')
-                window.location.href = `index.html`
+                window.location.href = `onboarding.html`
             }, 2000)
         },)
     })

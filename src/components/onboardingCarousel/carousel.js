@@ -57,7 +57,7 @@ export default function carousel() {
 
     sliderEl.querySelector('.carousel__skip').addEventListener('click', function () {
         // Always redirect to index.html immediately when pressed
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
     });
 
 
@@ -67,7 +67,7 @@ export default function carousel() {
         const carousel = document.querySelector('.carousel')
         if (currentItem === totalItems - 1) {
             // If we're already at last slide, redirect
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
         } else {
             // Otherwise, scroll and increment
             carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });

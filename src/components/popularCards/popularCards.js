@@ -1,9 +1,9 @@
 import swipeFunctionality from "../swipe/swipeEl";
 
-export default async function newsCards(articles) {
+export default function popularCards(articles) {
     const main = document.querySelector('main')
-    let newsCardsEl = document.createElement("div");
-    newsCardsEl.className = "newsCards";
+    let popularCardsEl = document.createElement("div");
+    popularCardsEl.className = "newsCards"
 
     let categories = [
         'Europe',
@@ -14,10 +14,10 @@ export default async function newsCards(articles) {
     ]
 
     let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
-    localStorage.setItem('savedArray', JSON.stringify(savedArray))
     console.log(savedArray);
+    console.log(articles);
 
-    newsCardsEl.innerHTML = categories.map((category) => {
+    popularCardsEl.innerHTML = categories.map((category) => {
         const articlesObject = articles.find(item => item.category === category);
         const articlesArray = articlesObject?.articles ?? [];
 
@@ -25,7 +25,7 @@ export default async function newsCards(articles) {
                         <details class="newsCards__item">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo">
+                                    <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo" >
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
@@ -35,6 +35,7 @@ export default async function newsCards(articles) {
 
                             <section class="newsCards__articleList">
                                 ${articlesArray.map((article) => {
+            // console.log(article);
             return `
                                         <article class="newsCards__article">
                                             <span class="material-symbols-outlined iconSave" data-id="${article.id}">Save</span>
@@ -60,11 +61,8 @@ export default async function newsCards(articles) {
                 `
     }).join("")
 
-    swipeFunctionality(newsCardsEl, articles)
+    swipeFunctionality(popularCardsEl, articles)
 
-    main.appendChild(newsCardsEl)
+    main.appendChild(popularCardsEl)
     return main
 }
-
-
-

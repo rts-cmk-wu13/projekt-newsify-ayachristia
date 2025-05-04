@@ -1,0 +1,48 @@
+.settingsEl{
+    text-align: center;
+    &__headline{
+        font-size: 32px;
+        font-family: 'Open Sans';
+        color: #4D861F;
+    }
+    &__subheadline{
+        font-size: 20px;
+        font-family: 'Open Sans';
+    }
+    &__categories{
+        border-top: 1px solid #c5c5c5;
+    }
+    &__item{
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        padding: .7rem 0 .7rem 1rem;
+        border-bottom: 1px solid #c5c5c5;
+    }
+    &__logo{
+        width: 10%;
+    }
+    &__logo img{
+        width: 18px;
+        height: 26px;
+    }
+    &__category{
+        width: 90%;
+        font-family: "Playfair Display";
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: bolder;
+        text-align: start;
+    }
+    &__colorscheme{
+        width: 90%;
+        font-size: 18px;
+        color: #4D861F;
+        font-family: 'Open Sans';
+        background: none;
+        border: 1px solid #4D861F;
+        padding: 1.2rem 0;
+        margin-top: 2.2rem;
+        border-radius: 10rem;
+    }
+}

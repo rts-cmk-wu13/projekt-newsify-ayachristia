@@ -1,9 +1,12 @@
 import swipeFunctionality from "../swipe/swipeEl";
 
-export default async function newsCards(articles) {
+export default function savedCards() {
+    let savedCardsEl = document.createElement("div");
     const main = document.querySelector('main')
-    let newsCardsEl = document.createElement("div");
-    newsCardsEl.className = "newsCards";
+    savedCardsEl.className = "newsCardsEl"
+
+    let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
+    console.log(savedArray);
 
     let categories = [
         'Europe',
@@ -13,16 +16,12 @@ export default async function newsCards(articles) {
         'Travel'
     ]
 
-    let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
-    localStorage.setItem('savedArray', JSON.stringify(savedArray))
-    console.log(savedArray);
 
-    newsCardsEl.innerHTML = categories.map((category) => {
-        const articlesObject = articles.find(item => item.category === category);
-        const articlesArray = articlesObject?.articles ?? [];
-
+    savedCardsEl.innerHTML = categories.map((category) => {
+        const articleObject = savedArray.filter(item => item.category === category)
+        const articlesArray = articleObject ?? [];
         return `
-                        <details class="newsCards__item">
+                            <details class="newsCards__item">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
                                     <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo">
@@ -37,8 +36,8 @@ export default async function newsCards(articles) {
                                 ${articlesArray.map((article) => {
             return `
                                         <article class="newsCards__article">
-                                            <span class="material-symbols-outlined iconSave" data-id="${article.id}">Save</span>
-                                            <!-- <span class="material-symbols-outlined iconDelete">Delete</span> -->
+                                            <!-- <span class="material-symbols-outlined iconSave" data-id="${article.id}">Save</span> -->
+                                            <span class="material-symbols-outlined iconDelete">Delete</span>
 
                                             <div class="newsCards__content" data-id="${article.id}" data-category="${article.category}">
                                             <div class="newsCards__article--logo">
@@ -47,7 +46,7 @@ export default async function newsCards(articles) {
 
                                             <section class="newsCards__article--text">
                                                 <h3 class="newsCards__article--headline" data-headline="${article.headline.main ?? article.headline}">${article.headline.main ?? article.headline}</h3>
-                                                <p class="newsCards__article--resume" data-resume="${article.resume}">${article.resume}</p>
+                                                <p class="newsCards__article--resume">${article.resume}</p>
                                             </section>
                                             </div>
 
@@ -57,14 +56,19 @@ export default async function newsCards(articles) {
             }
                             </section>
                         </details>
-                `
+        `
     }).join("")
-
-    swipeFunctionality(newsCardsEl, articles)
-
-    main.appendChild(newsCardsEl)
+    swipeFunctionality(savedCardsEl)
+    main.appendChild(savedCardsEl)
     return main
 }
 
 
+// til saved siden:
+// else {
+//     newsCards__article.style.innerHTML += remove
+//     localstorage.remove(key, dataattribut)
+// }
 
+// vise et element
+// gemmelogik eller slettelogik

@@ -33,7 +33,7 @@ export default async function getArticleSearch() {
             let dataObject = articles.map((article) => {
                 // console.log(article);
                 return {
-                    category: article.news_desk,
+                    category: `${customQuery}`,
                     headline: article.headline,
                     author: article.byline,
                     article: article.abstract,

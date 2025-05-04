@@ -13,7 +13,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                archive: resolve(__dirname, 'pages/archive.html'),
+                saved: resolve(__dirname, 'pages/saved.html'),
                 popular: resolve(__dirname, 'pages/popular.html'),
                 settings: resolve(__dirname, 'pages/settings.html'),
                 splash: resolve(__dirname, 'pages/splash.html'),

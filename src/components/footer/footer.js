@@ -12,11 +12,11 @@ export default function footer() {
                     </a>
                 </section>
                 <section class="footerEl__item">
-                    <a href="/pages/archive.html">
+                    <a href="/pages/saved.html">
                         <span class="material-symbols-outlined">
                             bookmark
                         </span>
-                        <p class="footerEl__item--text">Archive</p>
+                        <p class="footerEl__item--text">Saved</p>
                     </a>
                 </section>
                 <section class="footerEl__item">

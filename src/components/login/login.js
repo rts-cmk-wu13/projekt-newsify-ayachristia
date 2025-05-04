@@ -20,5 +20,14 @@ export default function loginAccount() {
                 
         `
 
+    const buttons = loginEl.querySelectorAll('.login__buttons button')
+    console.log(buttons);
+
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            window.location.href = `index.html`
+        })
+    })
+
     return loginEl
 }
