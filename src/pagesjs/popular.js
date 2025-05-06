@@ -7,11 +7,6 @@ import colorScheme from '../components/settingsMenu/colorscheme.js'
 
 const mainLayout = layout();
 
-// const popularArticles = await getMostPopular()
-// mainLayout.appendChild(footer())
-// mainLayout.appendChild(popularCards(popularArticles))
-
-
 
 async function initializePage() {
     const popularArticles = await getMostPopular();
@@ -23,5 +18,4 @@ async function initializePage() {
     });
 }
 
-// Then call the function
 initializePage();
