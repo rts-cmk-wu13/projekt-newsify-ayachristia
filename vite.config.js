@@ -12,7 +12,7 @@ export default defineConfig({
         assetsDir: 'assets',
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
+                index: resolve(__dirname, 'index.html'),
                 saved: resolve(__dirname, 'pages/saved.html'),
                 popular: resolve(__dirname, 'pages/popular.html'),
                 settings: resolve(__dirname, 'pages/settings.html'),
