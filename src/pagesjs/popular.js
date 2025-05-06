@@ -7,10 +7,21 @@ import colorScheme from '../components/settingsMenu/colorscheme.js'
 
 const mainLayout = layout();
 
-const popularArticles = await getMostPopular()
-mainLayout.appendChild(footer())
-mainLayout.appendChild(popularCards(popularArticles))
+// const popularArticles = await getMostPopular()
+// mainLayout.appendChild(footer())
+// mainLayout.appendChild(popularCards(popularArticles))
 
-document.addEventListener('DOMContentLoaded', () => {
-    colorScheme();
-});
+
+
+async function initializePage() {
+    const popularArticles = await getMostPopular();
+    mainLayout.appendChild(footer());
+    mainLayout.appendChild(popularCards(popularArticles));
+
+    document.addEventListener('DOMContentLoaded', () => {
+        colorScheme();
+    });
+}
+
+// Then call the function
+initializePage();
