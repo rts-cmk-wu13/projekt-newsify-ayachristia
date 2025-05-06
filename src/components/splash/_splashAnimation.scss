@@ -1,0 +1,42 @@
+.animateEl{
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    transition: 4s;
+    &__header{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__headline{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 32px;
+    }
+    &__item{
+        opacity: 0;
+        // display: none;
+    }
+    &__item:nth-child(1){
+        padding-top: 3.5rem;
+    }
+    &__item.fadein{
+        opacity: 1;
+        // display: block;
+        transition: ease-in-out 1.2s;
+    }
+    &__item.fadeout{
+        display: none;
+        // opacity: 0;
+        transition: ease-out 4s;
+    }
+}
