@@ -1,11 +1,15 @@
 .newsCards{
     width: 100%;
+    border-bottom: 1px solid #C5C5C5;
     &__summary{
         max-width: 100%;
         display: flex;
         align-items: center;
         padding: .7rem 0 .7rem 1rem;
-        border: 1px solid #C5C5C5;
+        border-top: 1px solid #C5C5C5;
+    }
+    details[open] summary {
+        border-bottom: 1px solid #C5C5C5;
     }
     &__summary--logo{
         width: 10%;

@@ -45,14 +45,14 @@
     z-index: 1000;
     padding: 0.8rem 0rem;
     box-shadow: 0px -2px 15px 2px #00000021;
-    background: white;
+    // background: white;
     &__item{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     &__item--text{
-        color: #404040;
+        // color: #404040;
         font-size: 12px;
     }
 }

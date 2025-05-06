@@ -1,10 +1,8 @@
 .login{
-    position: fixed;
-    top: 0;
-    left: 0;
+  
     background-color: white;
-    width: 100vw;
     height: 100vh;
+    width: 75rem;
     z-index: 1000;
 
     display: flex;
@@ -40,7 +38,7 @@
         gap: 1rem;
     }
     &__btn{
-        width: 90%;
+        width: 100%;
         background:none;
         border-radius: 2rem;
         border: 1px solid #C5C5C5;
@@ -50,7 +48,7 @@
         color: #404040;
     }
     &__btn--login{
-        width: 90%;
+        width: 100%;
         background: none;
         border-radius: 2rem;
         border: 1px solid #4D861F;
@@ -61,5 +59,28 @@
         padding: 1rem 0;
         font-family: "Open Sans Semibold";
     }
+    &__or{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 2rem 0;
+    }
+    &__or--text{
+        width: 5%;
+        text-align: center;
+    }
+    &__hl{
+        border: 1px solid rgb(182, 182, 182);
+        height: .5px;
+        width: 47%;
+    }
 
 }
+
+@media only screen and (min-width: 700px) {
+    .login{
+      width: 35rem;
+      margin: auto;
+    }
+  }

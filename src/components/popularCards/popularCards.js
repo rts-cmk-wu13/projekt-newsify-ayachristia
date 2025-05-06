@@ -14,8 +14,7 @@ export default function popularCards(articles) {
     ]
 
     let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
-    console.log(savedArray);
-    console.log(articles);
+    console.log('savedArray:', savedArray);
 
     popularCardsEl.innerHTML = categories.map((category) => {
         const articlesObject = articles.find(item => item.category === category);

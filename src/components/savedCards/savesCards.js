@@ -3,7 +3,7 @@ import swipeFunctionality from "../swipe/swipeEl";
 export default function savedCards() {
     let savedCardsEl = document.createElement("div");
     const main = document.querySelector('main')
-    savedCardsEl.className = "newsCardsEl"
+    savedCardsEl.className = "newsCards"
 
     let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
     console.log(savedArray);

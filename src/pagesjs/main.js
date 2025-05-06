@@ -4,6 +4,7 @@ import footer from '../components/footer/footer.js'
 import searchBar from '../components/searchbar/search.js'
 import newsCards from '../components/newsCards/newsCards.js'
 import getArticleSearch from '../nytapi/getArticleSearch.js'
+import colorScheme from '../components/settingsMenu/colorscheme.js'
 
 
 
@@ -16,9 +17,17 @@ if (!splashShown) {
 
 async function loadMain() {
     const searchArticles = await getArticleSearch()
-    console.log(searchArticles);
-    layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
+
+    const mainLayout = layout();
+    // mainLayout.appendChild()
+    mainLayout.appendChild(footer(), searchBar())
+    mainLayout.appendChild(newsCards(searchArticles))
+    // layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
+
 }
+document.addEventListener('DOMContentLoaded', () => {
+    colorScheme();
+});
 
 
 

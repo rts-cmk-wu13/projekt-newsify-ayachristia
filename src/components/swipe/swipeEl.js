@@ -4,8 +4,8 @@ export default function swipeFunctionality(container) {
     articles.forEach((item) => {
 
         const article = item.closest('.newsCards__article');
-        // const iconSave = article.querySelector('.iconSave');
-        // const iconDelete = article.querySelector('.iconDelete');
+        const iconSave = article.querySelector('.iconSave');
+        const iconDelete = article.querySelector('.iconDelete');
 
         item.addEventListener("pointerdown", startTouch)
         item.addEventListener("pointermove", moveTouch)
@@ -36,7 +36,7 @@ export default function swipeFunctionality(container) {
             currentX = event.clientX
             movedX = currentX - initialX
 
-            // let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
+            let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
             if (article.querySelector('.iconSave')) {
                 const iconSave = article.querySelector('.iconSave');
@@ -70,7 +70,7 @@ export default function swipeFunctionality(container) {
             initialX = undefined;
             event.target.closest('.newsCards__content').style.left = `0px`;
 
-            // article.style.backgroundColor = "transparent";
+            article.style.backgroundColor = "transparent";
             // iconSave.style.display = 'none';
             // iconDelete.style.display = 'none';
 

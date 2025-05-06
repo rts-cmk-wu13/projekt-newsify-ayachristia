@@ -1,0 +1,64 @@
+// .settingsEL__colorscheme{
+
+// }
+@use '/src/styles/variables' as *;
+  /* data atributter til at aktivere dark/light on boolean values  */
+  [data-dark="true"] {
+    color-scheme: dark;
+  }
+  
+  [data-dark="false"] {
+    color-scheme: light;
+  }
+  
+  /* valg af farver på landmarks på dak/light color scheme  */
+  html,
+  input,
+  textarea {
+    color: light-dark($colorRegular, $colorLight);
+    background-color: light-dark(white, $colorRegular);
+  }
+  
+  input,
+  textarea {
+    border: 1px solid light-dark($colorRegular, $colorLight);
+  }
+
+  .newsCards__content{
+    background: light-dark(white, $colorRegular);
+    // color: light-dark($colorRegular, $colorLight);
+  }
+
+  .footerEl{
+    background: light-dark(white, $colorRegular);
+    &__item--text {
+        color: light-dark($colorRegular, white);
+    }
+    &__item a>span{
+        color: light-dark($colorRegular, white);
+    }
+
+  }
+  
+
+
+
+//   .settingsEL__colorscheme {
+//     padding: 8px 16px;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background-color 0.3s, color 0.3s;
+//   }
+  
+//   /* Optional: Style variations for light/dark states */
+//   .settingsEL__colorscheme.light-mode {
+//     background-color: var(--light-color);
+//     color: var(--dark-color);
+//     border: 1px solid var(--dark-color);
+//   }
+  
+//   .settingsEL__colorscheme.dark-mode {
+//     background-color: var(--dark-color);
+//     color: var(--light-color);
+//     border: 1px solid var(--light-color);
+//   }

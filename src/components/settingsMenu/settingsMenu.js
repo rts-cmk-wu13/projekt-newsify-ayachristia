@@ -22,7 +22,10 @@ export default function settingsMenu(data) {
                             <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo">
                         </div>
                         <h2 class="settingsEl__category">${category}</h2>
-                        
+                        <label class="switch">
+                        <input type="checkbox" name="switch" id="switch">
+                        <span class="slider round"></span>
+                        </label>
                     </section>
                     `
     }).join("")}

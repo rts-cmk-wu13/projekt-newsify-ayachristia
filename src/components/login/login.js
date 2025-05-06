@@ -13,7 +13,11 @@ export default function loginAccount() {
         <section class="login__buttons">
             <button class="login__btn">Continue with Facebook</button>
         <button class="login__btn">Continue with Google</button>
-        <p>P</p>
+        <div class="login__or">
+            <span class="login__hl"></span>
+            <p class="login__or--text">or</p>
+            <span class="login__hl"></span>
+        </div>
         <button class="login__btn--login">Sing in with password</button>
     </section>
 
