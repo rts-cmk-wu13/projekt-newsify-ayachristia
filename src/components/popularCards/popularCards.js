@@ -1,4 +1,5 @@
 import swipeFunctionality from "../swipe/swipeEl";
+import logo from '/imgs/newsify_logo4.png'
 
 export default function popularCards(articles) {
     const main = document.querySelector('main')
@@ -24,7 +25,7 @@ export default function popularCards(articles) {
                         <details class="newsCards__item">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo" >
+                                    <img src="${logo}" alt="logo" aria-label="logo" >
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
