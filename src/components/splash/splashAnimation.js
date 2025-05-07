@@ -1,5 +1,3 @@
-
-
 import splash1 from 'imgs/newsify_logo1.png'
 import splash2 from 'imgs/newsify_logo2.png'
 
