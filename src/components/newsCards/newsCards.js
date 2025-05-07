@@ -1,4 +1,5 @@
 import swipeFunctionality from "../swipe/swipeEl";
+const smallLogo = '/public/imgs/newsify_logo4.png'
 
 export default async function newsCards(articles) {
     const main = document.querySelector('main')
@@ -25,7 +26,7 @@ export default async function newsCards(articles) {
                         <details class="newsCards__item">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="/src/imgs/newsify_logo4.png" alt="logo" aria-label="logo">
+                                    <img src="${smallLogo}" alt="logo" aria-label="logo">
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
