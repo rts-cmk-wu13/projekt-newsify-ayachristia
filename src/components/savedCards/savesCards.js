@@ -15,11 +15,13 @@ export default function savedCards() {
         'Health',
         'Sports',
         'Business',
-        'Travel'
+        'Travel',
+        'Searches'
     ]
+    const enabledCategories = JSON.parse(localStorage.getItem("settingsCategories")) || {}
+    const activeCategories = categories.filter(cat => enabledCategories[cat] !== false)
 
-
-    savedCardsEl.innerHTML = categories.map((category) => {
+    savedCardsEl.innerHTML = activeCategories.map((category) => {
         const articleObject = savedArray.filter(item => item.category === category)
         const articlesArray = articleObject ?? [];
         return `

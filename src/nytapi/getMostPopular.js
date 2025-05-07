@@ -26,8 +26,9 @@ export default async function getMostPopular(query, filter) {
             const data = await response.json()
             const articles = data.response.docs
             console.log(articles);
+            let validArticles = articles.filter(article => article.abstract && article.abstract.trim() !== '').slice(0, 10)
 
-            let dataObject = articles.map((article) => {
+            let dataObject = validArticles.map((article) => {
                 return {
                     category: `${customQuery}`,
                     headline: article.headline,
@@ -62,15 +63,15 @@ export default async function getMostPopular(query, filter) {
                 console.warn('No articles found for:', customQuery);
                 return null;
             }
-
-            let dataObject = articles.map((article) => {
+            let validArticles = articles.filter(article => article.abstract && article.abstract.trim() !== '').slice(0, 10)
+            let dataObject = validArticles.map((article) => {
                 return {
                     category: `${customQuery}`,
                     headline: article.title,
                     author: article.byline,
                     article: article.url,
                     resume: article.abstract,
-                    thumbnail: article.multimedia && article.multimedia.length > 1 ? article.multimedia[2].url : null
+                    thumbnail: article.multimedia && article.multimedia.length > 2 ? article.multimedia[2].url : null
                 }
 
             })

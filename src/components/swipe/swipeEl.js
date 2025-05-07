@@ -20,7 +20,7 @@ export default function swipeFunctionality(container) {
             category: item.dataset.category,
             headline: item.querySelector(".newsCards__article--headline").dataset.headline,
             id: item.dataset.id,
-            thumbnail: item.querySelector('.newsCards__article--logo img').dataset.img,
+            thumbnail: item.querySelector('.newsCards__article--logo img')?.dataset?.img || null,
             resume: item.querySelector(".newsCards__article--resume").dataset.resume
         }
 
@@ -36,7 +36,7 @@ export default function swipeFunctionality(container) {
             currentX = event.clientX
             movedX = currentX - initialX
 
-            let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
+            // let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
             if (article.querySelector('.iconSave')) {
                 const iconSave = article.querySelector('.iconSave');

@@ -14,12 +14,13 @@ export default async function newsCards(articles) {
         'Business',
         'Travel'
     ]
+    const enabledCategories = JSON.parse(localStorage.getItem("settingsCategories")) || {}
+    const activeCategories = categories.filter(cat => enabledCategories[cat] !== false)
 
     let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
     localStorage.setItem('savedArray', JSON.stringify(savedArray))
-    console.log(savedArray);
 
-    newsCardsEl.innerHTML = categories.map((category) => {
+    newsCardsEl.innerHTML = activeCategories.map((category) => {
         const articlesObject = articles.find(item => item.category === category);
         const articlesArray = articlesObject?.articles ?? [];
 
