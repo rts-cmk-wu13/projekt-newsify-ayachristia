@@ -1,9 +1,9 @@
-const carouselImgs = [
-    '/public/imgs/Onboarding1.png',
-    '/public/imgs/Onboarding2.png',
-    '/public/imgs/Onboarding3.png',
-]
-console.log(carouselImgs);
+// const carouselImgs = [
+//     '/public/imgs/Onboarding1.png',
+//     '/public/imgs/Onboarding2.png',
+//     '/public/imgs/Onboarding3.png',
+// ]
+// console.log(carouselImgs);
 
 import onboarding1 from '/imgs/Onboarding1.png'
 import onboarding2 from '/imgs/Onboarding2.png'

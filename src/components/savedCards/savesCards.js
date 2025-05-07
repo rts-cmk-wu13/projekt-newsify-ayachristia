@@ -1,5 +1,6 @@
 import swipeFunctionality from "../swipe/swipeEl";
-const savedImg = '/public/imgs/newsify_logo4.png'
+import logo from '/imgs/newsify_logo4.png'
+// const savedImg = '/public/imgs/newsify_logo4.png'
 
 export default function savedCards() {
     let savedCardsEl = document.createElement("div");
@@ -25,7 +26,7 @@ export default function savedCards() {
                             <details class="newsCards__item">
                             <summary class="newsCards__summary">
                                 <div class="newsCards__summary--logo">
-                                    <img src="${savedImg}" alt="logo" aria-label="logo">
+                                    <img src="${logo}" alt="logo" aria-label="logo">
                                 </div>
                                 <h2 class="newsCards__summary--headline">${category}</h2>
                                 <span class="material-symbols-outlined newsCards__summary--arrow">
