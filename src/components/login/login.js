@@ -1,11 +1,13 @@
 /*login element*/
+const loginImg = '/public/imgs/newsify_logo2.png'
+
 export default function loginAccount() {
     let loginEl = document.createElement("div");
     loginEl.className = "login"
 
     loginEl.innerHTML = `
         <div class="login__logo">
-            <img src="/src/imgs/newsify_logo 2.png" alt="logo" aria-label>
+            <img src="${loginImg}" alt="logo" aria-label>
         </div>
         <h1 class="login__headline">Newsify</h1>
         <p class="login__subtext">Welcome! Let's dive into your account!</p>

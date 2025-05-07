@@ -1,3 +1,8 @@
+const splashImgs = [
+    '/public/imgs/newsify_logo1.png',
+    '/public/imgs/newsify_logo2.png'
+]
+
 export default function splashEl() {
     const body = document.querySelector('body')
     const animateEl = document.createElement('section')
@@ -6,10 +11,10 @@ export default function splashEl() {
     animateEl.innerHTML = `
         <section class="animateEl__header">
            <section class="animateEl__item mini">
-            <img src="/src/imgs/newsify_logo1.png" alt="logo">
+            <img src="${splashImgs[0]}" alt="logo">
         </section>
         <section class="animateEl__item big">
-            <img src="/src/imgs/newsify_logo2.png" alt="logo">
+            <img src="${splashImgs[1]}" alt="logo">
             <h1 class="animateEl__headline">Newsify</h1>
         </section> 
         </section>

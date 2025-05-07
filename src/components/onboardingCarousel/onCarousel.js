@@ -1,3 +1,10 @@
+const carouselImgs = [
+    '/public/imgs/Onboarding1.png',
+    '/public/imgs/Onboarding2.png',
+    '/public/imgs/Onboarding3.png',
+]
+console.log(carouselImgs);
+
 export default function carousel() {
     let carouselEl = document.createElement("div");
     carouselEl.className = "carousel"
@@ -5,7 +12,7 @@ export default function carousel() {
     carouselEl.innerHTML = `
             <figure class="carousel__slides">
                 <div class="carousel__imgContainer">
-                    <img src="/src/imgs/Onboarding1.png" alt="onboardingImage" class="carousel__img">
+                    <img src="${carouselImgs[0]}" alt="onboardingImage" class="carousel__img">
                 </div>
                 <figcaption class="carousel__headline">Stay Connected,
                 Everywhere, Anytime</figcaption>
@@ -13,14 +20,14 @@ export default function carousel() {
             </figure>
             <figure class="carousel__slides">
                 <div class="carousel__imgContainer">
-                    <img src="/src/imgs/Onboarding2.png" alt="onboardingImage">
+                    <img src="${carouselImgs[1]}" alt="onboardingImage">
                 </div>
                 <h2 class="carousel__headline">Become a Savvy Global Citizen.</h2>
                 <p class="carousel__text">Discover tailored news that aligns with your interests and preferences. Your personalized news journey awaits!</p>
             </figure>
             <figure class="carousel__slides">
                 <div class="carousel__imgContainer">
-                    <img src="/src/imgs/Onboarding3.png" alt="onboardingImage">
+                    <img src="${carouselImgs[2]}" alt="onboardingImage">
                 </div>
                 <h2 class="carousel__headline">Enhance your News
                 Journey Now!</h2>
