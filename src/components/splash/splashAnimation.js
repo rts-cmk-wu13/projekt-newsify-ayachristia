@@ -1,7 +1,7 @@
-const splashImgs = [
-    '/public/imgs/newsify_logo1.png',
-    '/public/imgs/newsify_logo2.png'
-]
+
+
+import splash1 from 'imgs/newsify_logo1.png'
+import splash2 from 'imgs/newsify_logo2.png'
 
 export default function splashEl() {
     const body = document.querySelector('body')
@@ -11,10 +11,10 @@ export default function splashEl() {
     animateEl.innerHTML = `
         <section class="animateEl__header">
            <section class="animateEl__item mini">
-            <img src="${splashImgs[0]}" alt="logo">
+            <img src="${splash1}" alt="logo">
         </section>
         <section class="animateEl__item big">
-            <img src="${splashImgs[1]}" alt="logo">
+            <img src="${splash2}" alt="logo">
             <h1 class="animateEl__headline">Newsify</h1>
         </section> 
         </section>
