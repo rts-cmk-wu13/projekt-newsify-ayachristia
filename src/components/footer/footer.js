@@ -4,7 +4,7 @@ export default function footer() {
 
     footerEl.innerHTML = `
                 <section class="footerEl__item">
-                    <a href="index.html">
+                    <a href="/index.html">
                       <span class="material-symbols-outlined">
                     home
                     </span>

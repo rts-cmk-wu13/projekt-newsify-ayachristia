@@ -1,4 +1,5 @@
-const settingsImg = '/public/imgs/newsify_logo4.png'
+import logo from '/imgs/newsify_logo4.png'
+// const settingsImg = '/public/imgs/newsify_logo4.png'
 
 export default function settingsMenu(data) {
     const main = document.querySelector('main')
@@ -21,7 +22,7 @@ export default function settingsMenu(data) {
         return `
                     <section class="settingsEl__item" data-category="${category}">
                         <div class="settingsEl__logo">
-                            <img src="${settingsImg}" alt="logo" aria-label="logo">
+                            <img src="${logo}" alt="logo" aria-label="logo">
                         </div>
                         <h2 class="settingsEl__category">${category}</h2>
                         <label class="switch">

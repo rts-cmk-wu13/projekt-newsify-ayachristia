@@ -1,5 +1,7 @@
-const smallLogo = '/public/imgs/newsify_logo4.png'
-console.log(smallLogo);
+// const smallLogo = '/public/imgs/newsify_logo4.png'
+// console.log(smallLogo);
+
+import smallLogo from '/imgs/newsify_logo4.png'
 
 export default function layout() {
     let layoutEl = document.createElement("div");

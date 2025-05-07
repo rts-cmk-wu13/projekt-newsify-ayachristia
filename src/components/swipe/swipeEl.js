@@ -74,6 +74,9 @@ export default function swipeFunctionality(container) {
             // iconSave.style.display = 'none';
             // iconDelete.style.display = 'none';
 
+            // if(movedX < -20)
+            // overflow: clip;
+            // touch-action: pan-y on content 
             if (movedX < -100) {
                 let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
