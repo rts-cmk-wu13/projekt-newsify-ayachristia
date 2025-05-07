@@ -1,5 +1,5 @@
-import splash1 from 'imgs/newsify_logo1.png'
-import splash2 from 'imgs/newsify_logo2.png'
+import splash1 from '/imgs/newsify_logo1.png'
+import splash2 from '/imgs/newsify_logo2.png'
 
 export default function splashEl() {
     const body = document.querySelector('body')
