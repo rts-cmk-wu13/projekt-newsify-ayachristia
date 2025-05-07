@@ -26,7 +26,7 @@ export default function settingsMenu(data) {
                         </div>
                         <h2 class="settingsEl__category">${category}</h2>
                         <label class="switch">
-                        <input type="checkbox" name="switch" id="switch">
+                        <input type="checkbox" name="switch" id="switch-${categories}">
                         <span class="slider round"></span>
                         </label>
                     </section>
@@ -35,6 +35,29 @@ export default function settingsMenu(data) {
             </section>
             <button class="settingsEl__colorscheme">Toggle dark mode</button>
         `
+    let toggleState = JSON.parse(localStorage.getItem("settingsCategories")) || {
+        Europe: true,
+        Health: true,
+        Sport: true,
+        Business: true,
+        Travel: true
+    }
+    console.log(toggleState);
+
+    settingsEl.querySelectorAll('.settingsEl__item').forEach(btn => {
+        const category = btn.querySelector(".settingsEl__category").innerText.trim();
+        const checkbox = btn.querySelector("input[type='checkbox']");
+
+        checkbox.checked = toggleState[category] ?? true;
+
+        checkbox.addEventListener("change", () => {
+            toggleState[category] = checkbox.checked;
+            localStorage.setItem("settingsCategories", JSON.stringify(toggleState))
+            location.reload()
+        })
+    })
+
+
     main.appendChild(settingsEl)
     return main
 }

@@ -13,9 +13,9 @@ async function initializePage() {
     mainLayout.appendChild(footer());
     mainLayout.appendChild(popularCards(popularArticles));
 
-    document.addEventListener('DOMContentLoaded', () => {
-        colorScheme();
-    });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    colorScheme();
+});
 initializePage();

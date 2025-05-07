@@ -13,11 +13,13 @@ export default function popularCards(articles) {
         'Business',
         'Travel'
     ]
+    const enabledCategories = JSON.parse(localStorage.getItem("settingsCategories")) || {}
+    const activeCategories = categories.filter(cat => enabledCategories[cat] !== false)
 
     let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
     console.log('savedArray:', savedArray);
 
-    popularCardsEl.innerHTML = categories.map((category) => {
+    popularCardsEl.innerHTML = activeCategories.map((category) => {
         const articlesObject = articles.find(item => item.category === category);
         const articlesArray = articlesObject?.articles ?? [];
 
@@ -43,7 +45,11 @@ export default function popularCards(articles) {
 
                                             <div class="newsCards__content" data-id="${article.id}" data-category="${article.category}">
                                             <div class="newsCards__article--logo">
-                                            <img src="${article.thumbnail}" alt="articleImage" data-img="${article.thumbnail}">
+                                            ${article.thumbnail ? `
+      <div class="newsCards__article--logo">
+        <img src="${article.thumbnail}" alt="articleImage" data-img="${article.thumbnail}">
+      </div>
+    ` : ''}
                                             </div>
 
                                             <section class="newsCards__article--text">
