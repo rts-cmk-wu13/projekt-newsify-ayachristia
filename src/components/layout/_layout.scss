@@ -1,7 +1,11 @@
+@use '/src/styles/variables' as *;
+
+
 .mainLayoutEl{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    padding-inline: 6rem;
+    // width: 100%;
 
     &__header{
         display: flex;

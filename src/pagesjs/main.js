@@ -21,7 +21,7 @@ async function loadMain() {
     const mainLayout = layout();
     // mainLayout.appendChild()
     mainLayout.appendChild(footer(), searchBar())
-    mainLayout.appendChild(newsCards(searchArticles))
+    mainLayout.append(newsCards(searchArticles))
     // layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
 
 }

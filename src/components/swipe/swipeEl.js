@@ -10,7 +10,7 @@ export default function swipeFunctionality(container) {
         item.addEventListener("pointerdown", startTouch)
         item.addEventListener("pointermove", moveTouch)
         item.addEventListener("pointerup", endTouch)
-        item.addEventListener("pointerleave", endTouch)
+        // item.addEventListener("pointerleave", endTouch)
 
         let initialX;
         let currentX;
@@ -36,29 +36,15 @@ export default function swipeFunctionality(container) {
             currentX = event.clientX
             movedX = currentX - initialX
 
-            // let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
-
             if (article.querySelector('.iconSave')) {
                 const iconSave = article.querySelector('.iconSave');
                 article.style.backgroundColor = "green";
                 iconSave.style.display = 'block';
-                // iconDelete.style.display = 'none';
             } else if (article.querySelector('.iconDelete')) {
                 const iconDelete = article.querySelector('.iconDelete');
                 article.style.backgroundColor = "red";
-                // iconSave.style.display = 'none';
                 iconDelete.style.display = 'block';
             }
-
-            // if (!savedArray.some(obj => obj.id === articleObj.id)) {
-            //     article.style.backgroundColor = "green";
-            //     iconSave.style.display = 'block';
-            //     iconDelete.style.display = 'none';
-            // } else {
-            //     article.style.backgroundColor = "red";
-            //     iconSave.style.display = 'none';
-            //     iconDelete.style.display = 'block';
-            // }
 
 
             if (movedX < 0) {
@@ -69,30 +55,23 @@ export default function swipeFunctionality(container) {
         function endTouch(event) {
             initialX = undefined;
             event.target.closest('.newsCards__content').style.left = `0px`;
+            event.target.closest('.newsCards__content').classList.add('animate')
 
-            article.style.backgroundColor = "transparent";
-            // iconSave.style.display = 'none';
-            // iconDelete.style.display = 'none';
+            // article.style.backgroundColor = "transparent";
 
-            // if(movedX < -20)
-            // overflow: clip;
-            // touch-action: pan-y on content 
             if (movedX < -100) {
                 let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
                 if (!savedArray.some(obj => obj.id === articleObj.id)) {
                     savedArray.push(articleObj);
                     localStorage.setItem('savedArray', JSON.stringify(savedArray));
-                    // iconSave.style.display = 'none';
-                    // iconDelete.style.display = 'none';
+                    console.log(savedArray);
                 } else {
                     savedArray = savedArray.filter(item => item.id != articleObj.id)
                     localStorage.setItem('savedArray', JSON.stringify(savedArray))
-                    // iconSave.style.display = 'none';
-                    // iconDelete.style.display = 'none';
+                    console.log(savedArray);
                 }
 
-                event.target.closest('.newsCards__content').classList.add('animate')
             }
 
 
