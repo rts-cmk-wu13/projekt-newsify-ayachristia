@@ -77,7 +77,7 @@ export default function swipeFunctionality(container) {
             // if(movedX < -20)
             // overflow: clip;
             // touch-action: pan-y on content 
-            if (movedX < -100) {
+            if (movedX < -30) {
                 let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
                 if (!savedArray.some(obj => obj.id === articleObj.id)) {

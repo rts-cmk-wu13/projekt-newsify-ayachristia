@@ -44,6 +44,9 @@
         align-items: center;
         padding: .5rem 1rem;
         background-color: white;
+
+        overflow: clip;
+        touch-action: pan-y;
     }
     &__article:last-child{
         border: none;
