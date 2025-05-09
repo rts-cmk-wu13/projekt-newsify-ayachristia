@@ -1,0 +1,83 @@
+.login{
+  
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 4rem 1.5rem 1rem 1.5rem;
+
+    &__logo{
+        height: 128px;
+        width: 88px;
+    }
+    &__logo img{
+        width: 100%;
+        height: 100%;
+    }
+    &__headline{
+        font-family: "Playfair Display";
+        font-size: 38px;
+        margin-top: .3rem;
+    }
+    &__subtext{
+            font-family: "Open Sans";
+            font-size: 16px;
+            margin: 2.5rem 0 3rem 0;
+    }
+    &__buttons{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__btn{
+        width: 100%;
+        background:none;
+        border-radius: 2rem;
+        border: 1px solid #C5C5C5;
+        padding: 1rem 0;
+        font-size: 16px;
+        font-family: "Open Sans Semibold";
+        color: #404040;
+    }
+    &__btn--login{
+        width: 100%;
+        background: none;
+        border-radius: 2rem;
+        border: 1px solid #4D861F;
+        background-color: #4D861F;
+        box-shadow: 2px 4px 6px #4d861f50;
+        color: whitesmoke;
+        font-size: 16px;
+        padding: 1rem 0;
+        font-family: "Open Sans Semibold";
+    }
+    &__or{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 2rem 0;
+    }
+    &__or--text{
+        width: 5%;
+        text-align: center;
+    }
+    &__hl{
+        border: 1px solid rgb(182, 182, 182);
+        height: .5px;
+        width: 47%;
+    }
+
+}
+
+@media only screen and (min-width: 700px) {
+    .login{
+      width: 35rem;
+      margin: auto;
+    }
+  }

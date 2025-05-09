@@ -1,0 +1,79 @@
+@use '/src/styles/variables' as *;
+
+
+.mainLayoutEl{
+    display: flex;
+    flex-direction: column;
+    max-width: $containerWidth;
+    margin: 0 auto;
+    // padding-inline: 6rem;
+    // width: 100%;
+
+    &__header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem 0rem;
+    }
+    &__top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .8rem;
+    }
+    &__logo--text{
+        font-family: "Playfair Display";
+        font-size: 24px;
+    }
+    &__form{
+        width: 90%;
+        margin: 1.5rem 0;
+    }
+    &__searchBar{
+        width: 100%;
+        background-color: #d9d9d930;
+        border: none;
+        padding: .8rem;
+    }
+    &__searchBar::placeholder{
+        color: #22222240;
+    }
+    &__searchBar:focus{
+        outline: none;
+    }
+    &__main{
+        margin: 0 .5rem 10rem 0;
+        
+    }
+}
+
+.footerEl{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    padding: 0.8rem 0rem;
+    box-shadow: 0px -2px 15px 2px #00000021;
+    // background: white;
+    &__item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__item--text{
+        // color: #404040;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width:600px){
+    // .footerEl{
+    // //   max-width: 75rem;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    // }
+   }

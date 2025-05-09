@@ -1,0 +1,91 @@
+.carousel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  padding-top: 2rem;
+  &__slides{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  &__headline{
+          font-family: 'Playfair Display';
+          color: #404040;
+          font-size: 32px;
+          text-align: center;
+          margin: 1rem 0;
+          padding: 0 1.5rem;
+        }
+        &__text{
+          padding: 0 1.5rem;
+          margin: auto;
+          font-size: 18px;
+          font-family: 'Open Sans';
+          margin: 1.2rem 0 2.4rem 0;
+  }
+    &__buttons{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    &__nav{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__dots{
+      margin-bottom: 2rem;
+    }
+    &__dot{
+            // cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 2px;
+            background-color: #C5C5C5;
+            border-radius: 50%;
+            display: inline-block;
+      }
+      &__skip, &__next{
+        padding: 0.8rem 0;
+        border: none;
+        background: none;
+        font-size: 18px;
+        border-radius: 24px;
+        cursor: pointer;
+        width: 40%;
+      }
+      &__skip{
+        color: #4D861F;
+        border: 1px solid #4D861F;
+        left: 2rem;
+      }
+      &__next{
+        background-color: #4D861F;
+            right: 2rem;
+      }
+}
+
+.active, .carousel__dot:hover {
+        background-color: #4D861F;
+      }
+.active{
+        cursor: pointer;
+          height: 12px;
+          width: 50px;
+          margin: 0 2px;
+          border-radius: 20rem;
+          display: inline-block;
+      }
+
+      @media only screen and (min-width: 700px) {
+        .carousel{
+          display: flex;
+          flex-direction: row;
+
+        }
+      }
