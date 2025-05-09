@@ -4,6 +4,8 @@
 .mainLayoutEl{
     display: flex;
     flex-direction: column;
+    max-width: $containerWidth;
+    margin: 0 auto;
     // padding-inline: 6rem;
     // width: 100%;
 
@@ -69,9 +71,9 @@
 }
 
 @media only screen and (min-width:600px){
-    .footerEl{
-      max-width: 75rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    // .footerEl{
+    // //   max-width: 75rem;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    // }
    }
