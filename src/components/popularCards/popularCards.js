@@ -53,7 +53,12 @@ export default function popularCards(articles) {
                                             </div>
 
                                             <section class="newsCards__article--text">
-                                                <h3 class="newsCards__article--headline" data-headline="${article.headline.main ?? article.headline}">${article.headline.main ?? article.headline}</h3>
+                                                <h3 class="newsCards__article--headline" data-headline="${article.headline.main ?? article.headline}"><a href="https://www.nytimes.com/" style="cursor:pointer;">
+
+                                                ${article.headline.main ?? article.headline}
+                                                </a>
+                                                
+                                                </h3>
                                                 <p class="newsCards__article--resume" data-resume="${article.resume}">${article.resume}</p>
                                             </section>
                                             </div>

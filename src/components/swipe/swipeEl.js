@@ -52,29 +52,39 @@ export default function swipeFunctionality(container) {
             }
         }
 
+
         function endTouch(event) {
             initialX = undefined;
-            event.target.closest('.newsCards__content').style.left = `0px`;
-            event.target.closest('.newsCards__content').classList.add('animate')
+            const cardContent = event.target.closest('.newsCards__content');
+            const articleElement = event.target.closest('.newsCards__article');
 
-            // article.style.backgroundColor = "transparent";
+            cardContent.style.left = `0px`;
+            cardContent.classList.add('animate');
 
             if (movedX < -100) {
                 let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
                 if (!savedArray.some(obj => obj.id === articleObj.id)) {
+                    // Add to saved items
                     savedArray.push(articleObj);
                     localStorage.setItem('savedArray', JSON.stringify(savedArray));
-                    console.log(savedArray);
+                    console.log('Added to saved array:', savedArray);
                 } else {
-                    savedArray = savedArray.filter(item => item.id != articleObj.id)
-                    localStorage.setItem('savedArray', JSON.stringify(savedArray))
-                    console.log(savedArray);
+                    // Remove from saved items and animate the article away
+                    savedArray = savedArray.filter(item => item.id != articleObj.id);
+                    localStorage.setItem('savedArray', JSON.stringify(savedArray));
+                    console.log('Removed from saved array:', savedArray);
+
+                    // Apply the animation
+                    articleElement.style.position = 'relative';
+                    articleElement.style.opacity = '0';
+
+                    // Optional: Remove from DOM after animation completes
+                    setTimeout(() => {
+                        articleElement.style.display = 'none';
+                    }, 500); // Match this to your CSS transition duration
                 }
-
             }
-
-
         }
     })
 

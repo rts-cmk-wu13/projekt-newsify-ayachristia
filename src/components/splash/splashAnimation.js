@@ -7,14 +7,12 @@ export default function splashEl() {
     animateEl.classList.add('animateEl')
 
     animateEl.innerHTML = `
-        <section class="animateEl__header">
-           <section class="animateEl__item mini">
+        <section class="animateEl__item mini">
             <img src="${splash1}" alt="logo">
         </section>
         <section class="animateEl__item big">
             <img src="${splash2}" alt="logo">
             <h1 class="animateEl__headline">Newsify</h1>
-        </section> 
         </section>
     `
     const miniEl = animateEl.querySelector('.mini')
@@ -38,7 +36,6 @@ export default function splashEl() {
             }, 2000)
         },)
     })
-
 
     body.appendChild(animateEl)
     return body;
