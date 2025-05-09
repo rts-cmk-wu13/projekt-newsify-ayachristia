@@ -15,14 +15,17 @@ if (!splashShown) {
     loadMain()
 }
 
+// loadMain()
+
 async function loadMain() {
     const searchArticles = await getArticleSearch()
 
     const mainLayout = layout();
-    // mainLayout.appendChild()
-    mainLayout.appendChild(footer(), searchBar())
-    mainLayout.append(newsCards(searchArticles))
-    // layout().appendChild(footer(), searchBar(), newsCards(searchArticles))
+    mainLayout.appendChild(footer());
+    mainLayout.appendChild(searchBar());
+
+    const newsCardsElement = newsCards(searchArticles);
+    mainLayout.appendChild(newsCardsElement);
 
 }
 document.addEventListener('DOMContentLoaded', () => {

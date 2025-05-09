@@ -1,12 +1,10 @@
 .carousel{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  // text-align: center;
   height: 100vh;
-  width: 75rem;
-  margin: auto;
+
+  padding-top: 2rem;
   &__slides{
     display: flex;
     align-items: center;

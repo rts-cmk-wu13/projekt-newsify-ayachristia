@@ -33,6 +33,7 @@
         border-bottom: 1px solid #C5C5C5;
         position: relative;
         overflow: hidden;  
+        transition: all .5s ease-in-out;
     }
     &__content{
         position: relative;
