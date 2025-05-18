@@ -10,6 +10,7 @@ export default function carousel() {
     carouselEl.className = "carousel"
 
     carouselEl.innerHTML = `
+
             <figure class="carousel__slides">
                 <div class="carousel__imgContainer">
                     <img src="${onboarding1}" alt="onboardingImage" class="carousel__img">

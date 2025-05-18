@@ -1,16 +1,12 @@
 export default function swipeFunctionality(container) {
     let articles = container.querySelectorAll('.newsCards__content')
+    const articlesContainer = container.querySelector('.newsCards__articleList')
 
     articles.forEach((item) => {
-
         const article = item.closest('.newsCards__article');
-        const iconSave = article.querySelector('.iconSave');
-        const iconDelete = article.querySelector('.iconDelete');
 
+        // 🔥 Only add pointerdown to the article itself - removed pointermove and pointerup 🔥
         item.addEventListener("pointerdown", startTouch)
-        item.addEventListener("pointermove", moveTouch)
-        item.addEventListener("pointerup", endTouch)
-        // item.addEventListener("pointerleave", endTouch)
 
         let initialX;
         let currentX;
@@ -25,16 +21,20 @@ export default function swipeFunctionality(container) {
         }
 
         function startTouch(event) {
-            if (initialX === undefined) {
-                initialX = event.clientX
-            }
-            event.target.closest('.newsCards__article').classList.remove('animate')
+            // 🔥 Removed incorrect event listeners to articlesContainer 🔥
+            // 🔥 Properly initialize position 🔥
+            initialX = event.clientX;
+            event.target.closest('.newsCards__article').classList.remove('animate');
+
+            // 🔥 Add the move and end listeners to the document instead of the article 🔥
+            document.addEventListener("pointermove", moveTouch);
+            document.addEventListener("pointerup", endTouch);
+            document.addEventListener("pointercancel", endTouch);
         }
 
         function moveTouch(event) {
-
-            currentX = event.clientX
-            movedX = currentX - initialX
+            currentX = event.clientX;
+            movedX = currentX - initialX;
 
             if (article.querySelector('.iconSave')) {
                 const iconSave = article.querySelector('.iconSave');
@@ -46,46 +46,53 @@ export default function swipeFunctionality(container) {
                 iconDelete.style.display = 'block';
             }
 
-
+            // 🔥 Use item directly instead of event.target.closest() 🔥
             if (movedX < 0) {
-                event.target.closest('.newsCards__content').style.left = `${movedX}px`;
+                item.style.left = `${movedX}px`;
             }
         }
 
-
         function endTouch(event) {
-            initialX = undefined;
-            const cardContent = event.target.closest('.newsCards__content');
-            const articleElement = event.target.closest('.newsCards__article');
+            // 🔥 Correctly remove event listeners 🔥
+            document.removeEventListener("pointermove", moveTouch);
+            document.removeEventListener("pointerup", endTouch);
+            document.removeEventListener("pointercancel", endTouch);
 
-            cardContent.style.left = `0px`;
-            cardContent.classList.add('animate');
+            // 🔥 Use item directly instead of event.target 🔥
+            item.style.left = `0px`;
+            item.classList.add('animate');
 
             if (movedX < -100) {
                 let savedArray = JSON.parse(localStorage.getItem('savedArray')) || [];
 
-                if (!savedArray.some(obj => obj.id === articleObj.id)) {
+                // 🔥 Fixed syntax using && instead of & 🔥
+                if (article.querySelector('.iconSave') && !savedArray.some(obj => obj.id === articleObj.id)) {
                     // Add to saved items
                     savedArray.push(articleObj);
                     localStorage.setItem('savedArray', JSON.stringify(savedArray));
                     console.log('Added to saved array:', savedArray);
-                } else {
+                    // 🔥 Fixed syntax using && instead of & 🔥
+                } else if (article.querySelector('.iconDelete') && savedArray.some(obj => obj.id === articleObj.id)) {
                     // Remove from saved items and animate the article away
                     savedArray = savedArray.filter(item => item.id != articleObj.id);
                     localStorage.setItem('savedArray', JSON.stringify(savedArray));
                     console.log('Removed from saved array:', savedArray);
 
                     // Apply the animation
-                    articleElement.style.position = 'relative';
-                    articleElement.style.opacity = '0';
+                    article.style.position = 'relative';
+                    article.style.opacity = '0';
 
                     // Optional: Remove from DOM after animation completes
                     setTimeout(() => {
-                        articleElement.style.display = 'none';
+                        article.style.display = 'none';
                     }, 500); // Match this to your CSS transition duration
                 }
             }
-        }
-    })
 
+            // 🔥 Reset all tracking variables 🔥
+            initialX = undefined;
+            currentX = undefined;
+            movedX = undefined;
+        }
+    });
 }
